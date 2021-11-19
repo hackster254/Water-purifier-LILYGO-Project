@@ -1,0 +1,116 @@
+
+(rules PCB 12v_5v_FRIDAY_SAM
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 456)
+    (layer_rule F.Cu
+      (active off)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.9)
+    )
+  )
+  (rule
+    (width 1000.0)
+    (clear 500.2)
+    (clear 500.0 (type smd_to_turn_gap))
+    (clear 125.0 (type smd_smd))
+    (clear 300.2 (type POWER_POWER))
+    (clear 300.2 (type forlm2576_forlm2576))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-POWER" "Via[0-1]_800:400_um" POWER
+  )
+  (via 
+    "Via[0-1]_800:400_um-forlm2576" "Via[0-1]_800:400_um" forlm2576
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    POWER "Via[0-1]_800:400_um-POWER"
+  )
+  (via_rule
+    forlm2576 "Via[0-1]_800:400_um-forlm2576"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(U1-Pad42)" "Net-(U1-Pad41)" "Net-(U1-Pad40)" "Net-(U1-Pad39)" "Net-(U1-Pad38)" "Net-(U1-Pad37)" "Net-(R1-Pad1)" "Net-(U1-Pad33)"
+    "Net-(U1-Pad32)" "Net-(U1-Pad31)" "Net-(U1-Pad30)" "Net-(U1-Pad29)" "Net-(U1-Pad28)" "Net-(U1-Pad27)" "Net-(U1-Pad26)" "Net-(U1-Pad25)"
+    "Net-(U1-Pad24)" "Net-(U1-Pad23)" "Net-(U1-Pad21)" "Net-(U1-Pad20)" "Net-(U1-Pad18)" "Net-(U1-Pad17)" "Net-(U1-Pad16)" "Net-(U1-Pad15)"
+    "Net-(U1-Pad14)" "Net-(U1-Pad13)" "Net-(U1-Pad12)" "Net-(U1-Pad11)" "Net-(U1-Pad10)" "Net-(U1-Pad9)" "Net-(U1-Pad8)" "Net-(U1-Pad7)"
+    "Net-(U1-Pad6)" "Net-(U1-Pad5)" "Net-(U1-Pad4)" "Net-(U1-Pad3)" "Net-(U1-Pad2)" "Net-(U1-Pad1)" "Net-(J3-Pad2)" "Net-(J3-Pad1)"
+    "Net-(C2-Pad1)" "Net-(D1-Pad1)" "Net-(D2-Pad2)" GND "Net-(J4-Pad3)" "Net-(J4-Pad2)" "Net-(C1-Pad1)" "Net-(J6-Pad2)"
+    "Net-(J6-Pad1)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class POWER
+    (clearance_class POWER)
+    (via_rule POWER)
+    (rule
+      (width 2100.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class forlm2576
+    (clearance_class forlm2576)
+    (via_rule forlm2576)
+    (rule
+      (width 800.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
